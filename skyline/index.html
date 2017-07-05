@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="Scripts/jquery-3.2.1.js"></script>
+    <script src="Scripts/nocache.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  </head>
+  <!--<body onload="createListeners()">-->
+  <body>
+
+  <div id="buttons">
+
+    <div class="dropdown">
+      <input type="button" class="nav_button" value="North" id="button1"></input>
+      <div id="north_content" class="dropdown_content">
+        <span id="north_a">Row A</span>
+        <span id="north_b">Row B</span>
+        <span id="north_c">Row C</span>
+        <span id="north_d">Row D</span>
+        <span id="north_i_a">Row I-A</span>
+        <span id="north_i_b">Row I-B</span>
+        <span id="north_w">Row W</span>
+        <span id="north_e">Row E</span>
+      </div>
+    </div> <!-- end north dropdown div -->
+
+    <div class="dropdown">
+      <input type="button" class="nav_button" value="Menu" id="button2"></input>
+      <div id="menu_content" class="dropdown_content">
+        <span id="create_vehicles">Create / Delete</span>
+        <span id="retrieve_master">Retrieve Master</span>
+        <span id="save_vehicles">Write Master</span>
+        <div class="dropdown">
+          <span id="levels" class="levels_menu">Change Levels</span>
+          <div id="levels_content" class="dropdown_content">
+            <span id="level1">Level 1</span>
+            <span id="level2">Level 2</span>
+            <span id="level3">Level 3</span>
+            <span id="level4">Level 4</span>
+            <span id="level5">Level 5</span>
+            <span id="misc">Misc.</span>
+          </div> <!-- end nested dropdown div -->
+      </div> 
+    </div> <!-- end menu div -->
+
+    <div class="dropdown">
+      <input type="button" class="nav_button" value="South" id="button3"></input>
+      <div id="south_content" class="dropdown_content">
+        <span id="south_a">Row A</span>
+        <span id="south_b">Row B</span>
+        <span id="south_i_a">Row I-A</span>
+        <span id="south_i_b">Row I-B</span>
+        <span id="south_w">Row W</span>
+        <span id="south_e">Row E</span>
+      </div> 
+    </div> <!-- end south dropdown div -->
+
+  </div> <!-- end button div -->
+
+  <div id="level_info">
+    <span id="current_level">Level 1</span>
+    <span id="total_vehicles">TOTAL</span>
+    <span id="row_info">ROW</span>
+  </div> <!-- end level info div -->
+  
+  <div id="container">
+    
+  </div> <!-- end container div -->
+
+  </body>
+  <!--<script src="Scripts/script.js?nocache=003"></script>-->
+</html>
