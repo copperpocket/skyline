@@ -10,6 +10,7 @@ var master = {};
 var check = "goahead";
 
 createListeners();
+initContainer();
 
 // Close all dropdowns if clicked anywhere outside the expanding buttons
 window.onclick = function(event) {
@@ -158,6 +159,9 @@ function createListeners() {
     create_vehicles.addEventListener("click", function() {
         createForm();
     });
+    help_info.addEventListener("click", function() {
+        helpInfo();
+    });
     retrieve_master.addEventListener("click", function() {
         var confirmation = confirm("Are you sure you would like to retrieve the master file?\n\n"
         + "This will delete your local save and use the save located on my server.\n\n"
@@ -165,7 +169,7 @@ function createListeners() {
         if(confirmation === true) {
             retrieveMaster();
         } 
-    })
+    });
     levels.addEventListener("click", function() {
         expandLevels();
     });
@@ -532,7 +536,10 @@ function retrieveMaster() {
             console.log("Import complete: " + count + " values set in local storage.");
             total = returnTotal();
             total_div.innerHTML = total;
-            c.innerHTML = "Import Complete";
+            c.innerHTML = "Import Complete.<br><br>Use the North and South buttons to view the rows in each " + 
+            "ramp.<br><br>Spaces are listed in order with the vehicle plate info and the color of the vehicle " +
+            "as a background color.<br><br>If the space is empty or filled with a vehicle that is not a skyline " + 
+            "customer, it will be listed with an 'X'";
         }
     });
 }
@@ -598,6 +605,38 @@ function initRows() {
     } else {
         console.log("Sorry! No Web Storage support..")
     }
+}
+
+function initContainer() {
+    if(localStorage.length === 0) {
+        c.innerHTML = "Hello there, It looks like this is the first time you have ran this program.<br><br>" +
+        "To begin, click Menu and then Retrieve Master. This will pull the saved data from our web server, " + 
+        "and also allow the program to function correctly."
+    } else {
+        c.innerHTML = "Hello again.<br><br>Use the North and South buttons at the top to view each row, " +
+        "then select a row to view the spaces in that row. If a space is marked with an 'X', that means " +
+        "that space is empty, or has a vehicle parked that is not a skyline shuttle customer. If there " +
+        "is a valid shuttle vehicle parked, it's plate number will be listed with a background color that " +
+        "matches the color of the vehicle.<br><br>Use the Menu button and then Create/Delete to add or " + 
+        "remove vehicles from your local save, it will not effect the master file so if you feel like " +
+        "you would like to retrieve the master file and start over use the Retrieve Master button in Menu."
+    }
+}
+
+function helpInfo() {
+    c.innerHTML = "PROGRAM INFO:<br><br>Vehicles are saved locally on your device using HTML5 Local Storage. " +
+    "At any time you can retrieve a MASTER FILE located on my web server. Do this if you mess up your local " +
+    "save in anyway, or to initialize the program on a new device.<br><br>" +
+
+    "PROGRAM INSTRUCTIONS:<br><br>Use the green North and South buttons at the top to view each " +
+    "row and then choose a row to view the spaces in that row. Vehicles will be listed as only a plate number " +
+    "and the color of the vehicle will be used as a background color.<br><br>To add or remove vehicles from " +
+    "your local save, click Menu and then Create / Delete. This will bring up an input form to add the info " +
+    "of the vehicle wanted to be added, or the space number of the vehicle that is to be deleted. The space " +
+    "number HAS to be entered in correctly, for example '05' for space 5, or '21' for space 21. The zero HAS " +
+    "to be included in single digit spaces. If you enter the information incorrectly, you will be alerted." +
+    "<br><br>Vehicles will be added or deleted from whatever LEVEL and ROW is indicated in the top left and " +
+    "top right respectively. Be careful that you are entering into the correct LEVEL AND ROW.";
 }
 
 function parseDate(s) {
