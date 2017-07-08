@@ -311,8 +311,11 @@ function submitVehicle() {
         document.getElementById("color_input").value = "";
         document.getElementById("plate_input").value = "";
         document.getElementById("arrival_input").value = "";
-        total_div.innerHTML = "VEHICLE ADDED";
+        // total_div.innerHTML = "VEHICLE ADDED";
+        c.innerHTML = "<br>VEHICLE ADDED<br><br>Loading Current Row...";
+        
         total++;
+        setTimeout(createRow,1000,returnRow(row_code.slice(-2)),r.innerHTML);
     }
 }
 
@@ -326,11 +329,15 @@ function deleteVehicle() {
         total_div.innerHTML = "INVALID ENTRY";
         return;
     } else if (localStorage.getItem(space_input) !== "X") {
-        total_div.innerHTML = "VEHICLE DELETED";
+        // total_div.innerHTML = "VEHICLE DELETED";
 
         localStorage.setItem(space_input,"X");
         document.getElementById("space_input").value = "";
+
+        c.innerHTML = "<br>VEHICLE DELETED<br><br>Loading Current Row...";
+        
         total--;
+        setTimeout(createRow,1000,returnRow(row_code.slice(-2)),r.innerHTML);
     } else {
         total_div.innerHTML = "ALREADY EMPTY";
     }
@@ -384,6 +391,7 @@ function createRow(spaces, row) {
     }
 
     calcDeparture(spaces);
+    total_div.innerHTML = returnTotal();
 }
 
 function returnRow(space) {
@@ -529,8 +537,6 @@ function retrieveMaster() {
     });
 }
 
-// <<<<<<<<<<<<<<<<<<<<<<<<<<<<< UNUSED FUNCTIONS BELOW >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 function createEmptyRows(row,num) {
     var count = 0;
     var space;
@@ -594,6 +600,13 @@ function initRows() {
     }
 }
 
+function parseDate(s) {
+  var b = s.split(/\D/);
+  return new Date(b[0], --b[1], b[2]);
+}
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<< UNUSED FUNCTIONS BELOW >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 function checkStorage() {
     var i;
 
@@ -622,9 +635,4 @@ function sortStorage(){
     sortedArray = localStorageArray.sort();
     console.log(sortedArray);
     return sortedArray;
-}
-
-function parseDate(s) {
-  var b = s.split(/\D/);
-  return new Date(b[0], --b[1], b[2]);
 }
