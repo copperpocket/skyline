@@ -536,10 +536,8 @@ function retrieveMaster() {
             console.log("Import complete: " + count + " values set in local storage.");
             total = returnTotal();
             total_div.innerHTML = total;
-            c.innerHTML = "Import Complete.<br><br>Use the North and South buttons to view the rows in each " + 
-            "ramp.<br><br>Spaces are listed in order with the vehicle plate info and the color of the vehicle " +
-            "as a background color.<br><br>If the space is empty or filled with a vehicle that is not a skyline " + 
-            "customer, it will be listed with an 'X'";
+            c.innerHTML = "Import Complete.<br><br>Click on North or South to choose a row.<br><br>" +
+            "Click on Menu and then Help if you would like more info on how to use this program.";
         }
     });
 }
@@ -610,33 +608,41 @@ function initRows() {
 function initContainer() {
     if(localStorage.length === 0) {
         c.innerHTML = "Hello there, It looks like this is the first time you have ran this program.<br><br>" +
-        "To begin, click Menu and then Retrieve Master. This will pull the saved data from our web server, " + 
+        "To begin, click Menu and then Retrieve Master. This will pull the saved data from my web server, " + 
         "and also allow the program to function correctly."
     } else {
-        c.innerHTML = "Hello again.<br><br>Use the North and South buttons at the top to view each row, " +
-        "then select a row to view the spaces in that row. If a space is marked with an 'X', that means " +
-        "that space is empty, or has a vehicle parked that is not a skyline shuttle customer. If there " +
-        "is a valid shuttle vehicle parked, it's plate number will be listed with a background color that " +
-        "matches the color of the vehicle.<br><br>Use the Menu button and then Create/Delete to add or " + 
-        "remove vehicles from your local save, it will not effect the master file so if you feel like " +
-        "you would like to retrieve the master file and start over use the Retrieve Master button in Menu."
+        c.innerHTML = "Hello again.<br><br>Click on North or South to choose a row.<br><br>" + 
+        "Click on Menu and then Help if you would like more info on how to use this program.";
     }
 }
 
 function helpInfo() {
-    c.innerHTML = "PROGRAM INFO:<br><br>Vehicles are saved locally on your device using HTML5 Local Storage. " +
+    c.innerHTML = "<strong>PROGRAM INFO:</strong><br><hr>Vehicles are saved locally on your device using HTML5 Local Storage. " +
     "At any time you can retrieve a MASTER FILE located on my web server. Do this if you mess up your local " +
-    "save in anyway, or to initialize the program on a new device.<br><br>" +
+    "save in anyway, or to initialize the program on a new device.<br><br>" + 
+    "Under the main buttons, the current level is displayed on the left, the total number of vehicles saved in your " +
+    "local storage is displayed in the center, and the current row is displayed on the right.<br><br>" +
 
-    "PROGRAM INSTRUCTIONS:<br><br>Use the green North and South buttons at the top to view each " +
+    "<strong>VIEW SAVED VEHICLES:</strong><br><hr>Use the green North and South buttons at the top to view each " +
     "row and then choose a row to view the spaces in that row. Vehicles will be listed as only a plate number " +
-    "and the color of the vehicle will be used as a background color.<br><br>To add or remove vehicles from " +
-    "your local save, click Menu and then Create / Delete. This will bring up an input form to add the info " +
-    "of the vehicle wanted to be added, or the space number of the vehicle that is to be deleted. The space " +
-    "number HAS to be entered in correctly, for example '05' for space 5, or '21' for space 21. The zero HAS " +
-    "to be included in single digit spaces. If you enter the information incorrectly, you will be alerted." +
-    "<br><br>Vehicles will be added or deleted from whatever LEVEL and ROW is indicated in the top left and " +
-    "top right respectively. Be careful that you are entering into the correct LEVEL AND ROW.";
+    "and the color of the vehicle will be used as a background color.<br><br>" +
+    "Expired vehicles will be displayed with strikethrough text. Don't worry, you can't miss it. Vehicles will be " +
+    "considered expired exactly 21 days from the date entered when adding the vehicle in the input form. Sometimes " +
+    "the customer may have paid for additional days so be sure to check.<br><br>" +
+    "<strong>ADDING / DELETING VEHICLES</strong><br><hr>To add or remove vehicles from your local save, click Menu and " +
+    "then Create / Delete. This will bring up an input form to add the info of the vehicle wanted to be added, or " +
+    "the space number of the vehicle that is to be deleted. The space number HAS to be entered in correctly, for example " +
+    "'05' for space 5, or '21' for space 21. The zero HAS to be included in single digit spaces. If you enter the information " +
+    "incorrectly, you will be alerted.<br><br>" +
+    "IMPORTANT: Vehicles will be added or deleted from whatever LEVEL and ROW is indicated in the top left and top right " +
+    "respectively. To properly add or delete a vehicle first view the row, so the top left and top right indicate the desired " +
+    "space, and THEN click Menu and Create / Delete. Both the LEVEL and ROW should be correct on the form screen.<br><br>" +
+    "<strong>OTHER MENU OPTIONS:</strong><br><hr>Please ignore the Write Master option in the menu, this is only for me " +
+    "to use to rewrite the master file. Feel free to retrieve my master file at any time if you think it is more up to date " +
+    "than your local save.<br><br>" +
+    "Finally the Change Levels option is very straight forward, use it to change the levels and view rows and spaces in the same format " +
+    "but on a different level in the ramp. This option will likely be rarely used and I would like to work on improving it in the future.";
+
 }
 
 function parseDate(s) {
