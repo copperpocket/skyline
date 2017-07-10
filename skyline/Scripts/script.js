@@ -1,5 +1,5 @@
-var level_ele = document.getElementById("current_level");
-var level = level_ele.innerHTML;
+// var level_ele = document.getElementById("current_level");
+var level = document.getElementById("current_level").innerHTML;
 var level_num = level[level.length - 1];
 var c = document.getElementById("container");
 var r = document.getElementById("row_info");
@@ -55,6 +55,7 @@ function expandLevels() {
 
 function selectLevel(l) {
     var row_info = r.innerHTML;
+    var level_ele = document.getElementById("current_level");
 
     level_ele.innerHTML = l;
     level = level_ele.innerHTML;
@@ -319,7 +320,11 @@ function submitVehicle() {
         c.innerHTML = "<br>VEHICLE ADDED<br><br>Loading Current Row...";
         
         total++;
-        setTimeout(createRow,1000,returnRow(row_code.slice(-2)),r.innerHTML);
+        if(row_code.charAt(2) === "I") {
+            setTimeout(createRow,1000,returnRow(row_code.slice(-3)),r.innerHTML);
+        } else {
+            setTimeout(createRow,1000,returnRow(row_code.slice(-2)),r.innerHTML);
+        }
     }
 }
 
