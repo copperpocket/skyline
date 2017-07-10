@@ -1,0 +1,135 @@
+html, body {
+    padding:0;
+    margin:0;
+}
+
+html {
+    font-size:150%;
+}
+
+@media(min-width:60em) {
+    html {
+        font-size: 90%
+    }
+
+    .nav_button {
+        font-size:90%;
+    }
+}
+
+.header {
+    margin:0;
+}
+
+body {
+    background-color:rgb(51,51,51);
+}
+
+form {
+    margin:auto;
+    width:90%;
+}
+
+label {
+    width:50px;
+}
+
+#submit_button {
+    margin-top:20px;
+    padding:8px 32px;
+}
+
+#delete_button {
+    margin-top:20px;
+    padding:8px 32px;
+}
+
+.vehicle_input {
+    display:block;
+    margin:10px auto;
+    width:100px;
+    padding:4px 16px;
+}
+
+#container, #level_info {
+    background-color:rgb(51,151,151);
+    color:rgb(255,255,255);
+    width:90%;
+    margin:auto;
+    margin-top:10px;
+    padding:10px;
+}
+
+ /*The container <div> - needed to position the dropdown content */
+#buttons {
+    background-color:rgb(151,151,151);
+    width:90%;
+    margin:auto;
+    margin-top:10px;
+    padding:10px;
+    text-align:center;
+}
+
+.dropdown {
+    display:inline-block;
+}
+
+.nav_button {
+    background-color:#4CAF50;
+    color:white;
+    padding:16px;
+    border:none;
+    cursor:pointer;
+    font-size:90%;
+}
+
+/*Dropdown button on hover & focus*/
+.nav_button:hover, .nav_button:focus {
+    background-color:#3E8E41;
+}
+
+/*Dropdown Content (Hidden by Default) */
+.dropdown_content {
+    display:none;
+    position:absolute;
+    background-color:#F9F9F9;
+    min-width:120px;
+    box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index:1;
+}
+
+   /*Show the dropdown menu */
+.show {display:block;}
+
+.show_levels {display:inline-block;}
+
+    /*Links inside the dropdown */
+ .dropdown_content span {
+     color:black;
+     padding:12px 16px;
+     text-decoration:none;
+     display:block;
+     cursor:pointer;
+ }
+
+   /*Change color of dropdown links on hover */
+.dropdown_content span:hover {background-color: #e6e6e6;}
+
+.rows {
+    padding:0;
+    margin:5px auto;
+}
+
+#level_info {
+    overflow:hidden;
+}
+
+#current_level {
+    float:left;
+    padding-left:20px;
+}
+
+#row_info {
+    float:right;
+    padding-right:20px;
+}
