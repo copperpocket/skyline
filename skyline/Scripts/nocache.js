@@ -3,5 +3,5 @@ window.onload = function() {
     el.src = "Scripts/script.js?nocache=" + (new Date()).getTime();
     document.head.appendChild(el);
 
-    console.log('nochache.js finsihed');
+    console.log('nocache.js executed');
 }
